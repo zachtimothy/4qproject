@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>FoodCart</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Righteous&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+      @media (max-width: 790px) {
+                .navbar {
+                    padding-left: 15px !important;
+                    padding-right: 15px !important;
+                }
+                .navbar-toggler {
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                .nav-link {
+                    font-size: small !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    text-align: center !important;
+                }
+            }
+    body {
+      background-color: #e4e4e4;
+        font-family: 'Baloo Da 2', cursive;
+        text-align: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar {
+        background-color: white;
+        opacity: 0.9;
+    }
+    .nav {
+        padding-top: 15px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #f80979;
+        user-select: none;
+    }
+    .navbar-brand {
+        font-size: 60px;
+        padding-bottom: 10px;
+        padding-top: 0;
+    }
+    .logo {
+        color: #f80959;
+    }
+    #logoText {
+        user-select: none;
+        font-family: 'Righteous', cursive;
+        margin-top: 10px;
+    }
+    .nav-link, .dropdown-item {
+        font-family: 'Baloo Da 2', cursive;
+    }
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    br {
+        background-color: white;
+        border: none;
+    }
+    .header {
+        font-size: 40px;
+        margin: 0 auto;
+        width: 72vw;
+        position: relative;
+        text-align: center;
+        background-color: white;
+        font-family: 'Righteous', cursive;
+        padding: 20px;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .box {
+      background-color: white;
+      width: 72vw;
+      padding: 50px;
+      margin: 20px auto;
+      font-size: 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    </style>
+
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-sm navbar-light bg-none px-5">
+        <div class="container-fluid nav">
+            <div class="navbar-brand"><span class="logo"><i class="bi bi-cart3"></i></span></div>
+            <h1 id="logoText"><span class="logo">Food</span>Cart</h1>
+            <p>&nbsp;deliveries</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse me-auto justify-content-end" id="nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item navcell mx-2">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house">&nbsp;</i> HOME</a>
+                    </li>
+                    <li class="nav-item navcell mx-2">
+                        <a class="nav-link" href="about.html"><i class="bi bi-file-earmark-person">&nbsp;</i> ABOUT THE COMPANY</a>
+                    </li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-tag">&nbsp;</i> CATEGORIES</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#food">Food</a></li>
+                            <li><a class="dropdown-item" href="#drinks">Drinks</a></li>
+                            <li><a class="dropdown-item" href="#desserts">Desserts</a></li>
+                            <li><a class="dropdown-item" href="#fruits">Fruits</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+      <div class="header mt-5"><strong>About The Company</strong></div>
+      <div class="box mt-5">
+      <strong>Group Members - Anacleto, Bersamina, Cristobal, Palad, Parchamento</strong>
+      <br><br>
+      <p><strong>David Prince Anacleto </strong>- Developed the About the company page.</p>
+      <p><strong>Zachary Timothy Bersamina </strong>- Helped with the CSS and JS of the pages.</p>
+      <p><strong>Jean Ella Margaret Cristobal </strong>- Developed the about the company page.</p>
+      <p><strong>Alexa May Palad </strong>- Developed the shop catalog.</p>
+      <p><strong>Dyre Raphael Parchamento </strong>- Helped in the HTML/CSS development of the pages.</p><br><br>
+
+    
+      <p class="text-muted">All images used are taken from Pexels and Google Images. Icons used are from Bootstrap's own icon library. Prices are made up.</p>
+      </div>
+    </body>
+</html>

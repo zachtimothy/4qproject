@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FoodCart</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Righteous&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <style>
+            @media (max-width: 790px) {
+                .navbar {
+                    padding-left: 15px !important;
+                    padding-right: 15px !important;
+                }
+                .navbar-toggler {
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                .nav-link {
+                    font-size: small !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    text-align: center !important;
+                }
+            }
+            @media (max-width: 1400px) {
+                .myCart {
+                    margin-left: 20px !important;
+                    margin-right: auto !important;
+                }
+                .menu {
+                    margin-left: auto !important;
+                    margin-right: 20px !important;
+                }
+            }
+            @media (max-width: 1135px) {
+                .myCart {
+                    margin-left: auto !important;
+                    width: 100%;
+                }
+                .menu {
+                    width: 100%;
+                    margin-right: auto !important;
+                }
+                .details {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+            @media (max-width: 975px) {
+                .bruh {
+                    display: flex !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .myCart, .menu {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    width: 100%;
+                }
+            }
+            body {
+                background-image: url(img/body-background.jpg);
+                background-position: center top;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+            .navbar {
+                background-color: white;
+                opacity: 0.9;
+            }
+            .nav {
+                padding-top: 40px;
+                padding-bottom: 60px;
+                border-bottom: 1px solid #f80979;
+                user-select: none;
+            }
+            .navbar-brand {
+                font-size: 60px;
+                padding-bottom: 10px;
+                padding-top: 0;
+            }
+            .logo {
+                color: #f80959;
+            }
+            #logoText {
+                user-select: none;
+                font-family: 'Righteous', cursive;
+                margin-top: 10px;
+            }
+            .nav-link, .dropdown-item {
+                font-family: 'Baloo Da 2', cursive;
+            }
+            .navbar-nav {
+                margin-top: 10px;
+            }
+            #gamer {
+                padding: 40px;
+            }
+            .menu {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+            .myCart {
+                max-height: 500px;
+                min-width: 230px;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+            .orderList {
+                padding-top: 5px;
+                min-height: 330px;
+                max-height: 330px;
+                overflow: scroll;
+            }
+            .catalogue {
+                padding: 20px;
+                margin: 20px;
+                background: white;
+                font-family: 'Baloo Da 2', cursive;
+                opacity: 0.96;
+            }
+            .category {
+                padding: 5px;
+                border-bottom: 3px solid gray;
+            }
+            .cart-title {
+                padding: 5px;
+                border-bottom: 3px solid gray;
+            }
+            .btn-outline-danger {
+                float: right;
+            }
+            .orderBtn {
+                background-color: #f80959;
+            }
+            .card {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .card-img-top {
+                margin-top: 8px;
+            }
+            .drinkRow .card img {
+                width: 166px;
+                height: 100%;
+            }
+            .dessertRow .card img {
+                width: 166px;
+                height: 110px;
+            }
+            .details {
+                font-family: 'Baloo Da 2', cursive;
+                margin-top: 40px;
+                background-color: white;
+                padding: 30px;
+                margin: 0 10px;
+                opacity: 0.96;
+            }
+            #name, #email, #address {
+                height: 30px;
+            }
+            .btn, .btn:hover, .btn:active, .btn:visited {
+                outline: none !important;
+            }
+            .btn:focus {
+                box-shadow: none !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainContent">
+            <nav class="navbar navbar-expand-sm navbar-light bg-none px-5">
+                <div class="container-fluid nav">
+                    <div class="navbar-brand"><span class="logo"><i class="bi bi-cart3"></i></span></div>
+                    <h1 id="logoText"><span class="logo">Food</span>Cart</h1>
+                    <p>&nbsp;deliveries</p>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse me-auto justify-content-end" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item navcell mx-2">
+                                <a class="nav-link" href="index.html"><i class="bi bi-house">&nbsp;</i> HOME</a>
+                            </li>
+                            <li class="nav-item navcell mx-2">
+                                <a class="nav-link" href="about.html"><i class="bi bi-file-earmark-person">&nbsp;</i> ABOUT THE COMPANY</a>
+                            </li>
+                            <li class="nav-item dropdown mx-2">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-tag">&nbsp;</i> CATEGORIES</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#food">Food</a></li>
+                                    <li><a class="dropdown-item" href="#drinks">Drinks</a></li>
+                                    <li><a class="dropdown-item" href="#desserts">Desserts</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid" id="gamer">
+                <div class="row bruh">
+                    <div class="col-sm-9 menu catalogue">
+                        <div id="food">
+                            <h2 class="category">Food</h2>
+                            <div class="row px-5 my-4">
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Pasta</h5>
+                                      <p class="card-text text-muted small">PHP 200</p>
+                                      <a class="btn orderBtn d-grid" onclick="food1()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food2.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Chicken</h5>
+                                      <p class="card-text text-muted small">PHP 200</p>
+                                      <a class="btn orderBtn d-grid" onclick="food2()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food3.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Soup</h5>
+                                      <p class="card-text text-muted small">PHP 190</p>
+                                      <a class="btn orderBtn d-grid" onclick="food3()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food4.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Salad</h5>
+                                      <p class="card-text text-muted small">PHP 120</p>
+                                      <a class="btn orderBtn d-grid" onclick="food4()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food5.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Steak</h5>
+                                      <p class="card-text text-muted small">PHP 550</p>
+                                      <a class="btn orderBtn d-grid" onclick="food5()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/food6.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">amogus nugget</h5>
+                                      <p class="card-text text-muted small">PHP 99,999</p>
+                                      <a class="btn orderBtn d-grid" onclick="food6()">Order</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="drinks">
+                            <h2 class="category">Drinks</h2>
+                            <div class="row drinkRow px-5 my-4">
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Coke</h5>
+                                      <p class="card-text text-muted small">PHP 20</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink1()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks2.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Pepsi</h5>
+                                      <p class="card-text text-muted small">PHP 20</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink2()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks3.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Sprite</h5>
+                                      <p class="card-text text-muted small">PHP 20</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink3()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks4.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Mountain Dew</h5>
+                                      <p class="card-text text-muted small">PHP 20</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink4()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks5.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Bottled water</h5>
+                                      <p class="card-text text-muted small">PHP 10</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink5()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/drinks6.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Fanta</h5>
+                                      <p class="card-text text-muted small">PHP 20</p>
+                                      <a class="btn orderBtn d-grid" onclick="drink6()">Order</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="desserts">
+                            <h2 class="category">Desserts</h2>
+                            <div class="row dessertRow px-5 my-4">
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Pie</h5>
+                                      <p class="card-text text-muted small">PHP 120</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert1()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert2.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Pancakes</h5>
+                                      <p class="card-text text-muted small">PHP 120</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert2()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert3.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Cookies</h5>
+                                      <p class="card-text text-muted small">PHP 60</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert3()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert4.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Cakes</h5>
+                                      <p class="card-text text-muted small">PHP 140</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert4()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert5.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Donuts</h5>
+                                      <p class="card-text text-muted small">PHP 80</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert5()">Order</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 12rem;">
+                                    <img src="img/dessert6.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Bread</h5>
+                                      <p class="card-text text-muted small">PHP 80</p>
+                                      <a class="btn orderBtn d-grid" onclick="dessert6()">Order</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 myCart catalogue">
+                        <div class="cart-title">
+                            <h3 class="text-center mt-2 cart">My Cart</h3>
+                        </div>
+                        <div class="orderList mt-3">
+                            <ul class="list-group">
+                                <li class="list-group" id="orderedItems">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="totalPrice mt-4">
+                            <h4>Total: PHP <span id="total">0</span>.00</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row details">
+                    <h3><b>Delivery details:</b></h3>
+                    <form action="http://sirjm.infinityfreeapp.com/checkout.php" method="GET" onsubmit="execution()">
+                        <div class="mb-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="name" class="form-label">Name:</label>
+                                    <input class="form-control" id="name" name="cust_name">
+                                </div>
+                                <div class="col">
+                                    <label for="email" class="form-label">Email:</label>
+                                    <input class="form-control" id="email" name="cust_email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="address" class="form-label">Address:</label>
+                            <input class="form-control" id="address" name="cust_addr">
+                            <input type="hidden" class="form-control" id="cust_order" name="cust_order">
+                        </div>
+                        <div class="btn d-grid">
+                            <input type="submit" value="Place Order" class="btn orderBtn" id="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            var cust_order = [];
+            function food1() {
+                var order = {
+                    prod_name: "Pasta",
+                    prod_price: 200,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function food2() {
+                var order = {
+                    prod_name: "Chicken",
+                    prod_price: 200,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function food3() {
+                var order = {
+                    prod_name: "Soup",
+                    prod_price: 190,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function food4() {
+                var order = {
+                    prod_name: "Salad",
+                    prod_price: 120,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function food5() {
+                var order = {
+                    prod_name: "Steak",
+                    prod_price: 550,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function food6() {
+                var order = {
+                    prod_name: "amogus nugget",
+                    prod_price: 99999,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink1() {
+                var order = {
+                    prod_name: "Coke",
+                    prod_price: 20,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink2() {
+                var order = {
+                    prod_name: "Pepsi",
+                    prod_price: 20,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink3() {
+                var order = {
+                    prod_name: "Sprite",
+                    prod_price: 20,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink4() {
+                var order = {
+                    prod_name: "Mountain Dew",
+                    prod_price: 20,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink5() {
+                var order = {
+                    prod_name: "Bottled water",
+                    prod_price: 10,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function drink6() {
+                var order = {
+                    prod_name: "Fanta",
+                    prod_price: 20,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert1() {
+                var order = {
+                    prod_name: "Pie",
+                    prod_price: 120,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert2() {
+                var order = {
+                    prod_name: "Pancakes",
+                    prod_price: 120,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert3() {
+                var order = {
+                    prod_name: "Cookies",
+                    prod_price: 60,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert4() {
+                var order = {
+                    prod_name: "Cakes",
+                    prod_price: 140,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert5() {
+                var order = {
+                    prod_name: "Donuts",
+                    prod_price: 80,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+            function dessert6() {
+                var order = {
+                    prod_name: "Bread",
+                    prod_price: 80,
+                };
+                cust_order.push(order);
+                orderSorter();
+            }
+
+            function orderSorter() {
+                var totalPrice = 0;
+                document.getElementById("orderedItems").innerHTML = "";
+                for(var i=0; i<cust_order.length; i++) {
+                    totalPrice = totalPrice + cust_order[i].prod_price;
+                    document.getElementById("total").innerHTML = totalPrice;
+                    document.getElementById("orderedItems").innerHTML += '<li class="list-group-item"><b>' + cust_order[i].prod_name + '</b><br>' + cust_order[i].prod_price + '<button class="btn btn-sm btn-outline-danger" onclick="removeOrder(' + i + ',' + totalPrice + ')"><i class="bi bi-trash3"></i></button></li>';
+                }
+            }
+
+            function removeOrder(i, totalPrice) {
+                var a = 0
+                var a = totalPrice - cust_order[i].prod_price;
+                console.log(a);
+                document.getElementById("total").innerHTML = a;
+                cust_order.splice(i,1);
+                orderSorter();
+            }
+
+            function execution() {
+                document.getElementById("cust_order").value = JSON.stringify(cust_order);
+            }
+        </script>
+    </body>
+</html>
